@@ -11,14 +11,11 @@ pipeline
                 echo 'Hello World'
             }
         }
-    }
-    stages 
-    {
         stage('Hello2') 
         {
             steps 
             {
-                echo 'Hello World'
+                echo 'Hello World 2'
             }
         }
     }
