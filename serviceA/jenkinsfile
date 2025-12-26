@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('Hello1') {
+        stage('Test_Local') {
             steps {
                 echo "Hello ${params.USERNAME}"
                 echo "Environment: ${params.ENV}"
@@ -21,15 +21,15 @@ pipeline {
             }
         }
 
-        stage('Hello2') {
+        stage('Test_Staging') {
             steps {
                 echo "Hello World 2 - ${params.ENV}"
             }
         }
 
-        stage('Hello3') {
+        stage('Test_Prod') {
             steps {
-                echo "Hello World 3"
+                echo "Production Testing"
             }
         }
     }
