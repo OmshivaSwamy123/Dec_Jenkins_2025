@@ -2,16 +2,23 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'USERNAME', defaultValue: 'Shiva', description: 'User name')
-        choice(name: 'ENV', choices: ['dev', 'qa', 'prod'], description: 'Environment')
+        string(name: 'USERNAME', defaultValue: 'Jenkins', description: 'User name')
+        choice(name: 'BUILD_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'Build environment')
         booleanParam(name: 'RUN_LS', defaultValue: true, description: 'Run ls command')
     }
 
+    environment {
+        APP_NAME = 'MyApp'
+        BUILD_ENV = "${params.BUILD_ENV}"
+        GREETING = "Hello ${params.USERNAME}"
+    }
+
     stages {
-        stage('Test_Local') {
+        stage('Testing_Dev') {
             steps {
-                echo "Hello ${params.USERNAME}"
-                echo "Environment: ${params.ENV}"
+                echo "${env.GREETING}"
+                echo "Application: ${env.APP_NAME}"
+                echo "Environment: ${env.BUILD_ENV}"
 
                 script {
                     if (params.RUN_LS) {
@@ -21,15 +28,15 @@ pipeline {
             }
         }
 
-        stage('Test_Staging') {
+        stage('Testing_Stage') {
             steps {
-                echo "Hello World 2 - ${params.ENV}"
+                echo "Hello World 2 - ${env.BUILD_ENV}"
             }
         }
 
-        stage('Test_Prod') {
+        stage('Testing_Prod') {
             steps {
-                echo "Production Testing"
+                echo "Hello World 3"
             }
         }
     }
