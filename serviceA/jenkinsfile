@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Slave_Two' }
+    agent any
 
     parameters {
         string(name: 'USERNAME', defaultValue: 'Jenkins', description: 'User name')
