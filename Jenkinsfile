@@ -1,11 +1,11 @@
 pipeline 
 {
-    agent any
-
+    
     stages 
     {
         stage('Hello') 
         {
+			agent { label 'Slave_Two'}
             steps 
             {
                 echo 'Hello World'
@@ -16,6 +16,7 @@ pipeline
         }
         stage('Hello2') 
         {
+			agent { label 'Slave_Two'}
             steps 
             {
                 echo 'Hello World 2'
@@ -23,6 +24,7 @@ pipeline
         }
 		stage(Hello3)
 		{
+			agent { label 'Slave_Two'}
 			steps
 			{
 				echo 'Hello World 3'
