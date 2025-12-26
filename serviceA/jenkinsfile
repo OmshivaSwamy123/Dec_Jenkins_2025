@@ -1,0 +1,36 @@
+pipeline {
+    agent { label 'Slave_Two' }
+
+    parameters {
+        string(name: 'USERNAME', defaultValue: 'Jenkins', description: 'User name')
+        choice(name: 'ENV', choices: ['dev', 'qa', 'prod'], description: 'Environment')
+        booleanParam(name: 'RUN_LS', defaultValue: true, description: 'Run ls command')
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello ${params.USERNAME}"
+                echo "Environment: ${params.ENV}"
+
+                script {
+                    if (params.RUN_LS) {
+                        sh 'ls -lrt'
+                    }
+                }
+            }
+        }
+
+        stage('Hello2') {
+            steps {
+                echo "Hello World 2 - ${params.ENV}"
+            }
+        }
+
+        stage('Hello3') {
+            steps {
+                echo "Hello World 3"
+            }
+        }
+    }
+}
