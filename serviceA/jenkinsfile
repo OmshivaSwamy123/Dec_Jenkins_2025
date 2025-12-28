@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'USERNAME', defaultValue: 'Jenkins', description: 'User name')
+        choice(name: 'BUILD_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'Build environment')
+        booleanParam(name: 'RUN_LS', defaultValue: true, description: 'Run ls command')
+    }
+
+    environment {
+        APP_NAME = 'MyApp'
+        BUILD_ENV = "${params.BUILD_ENV}"
+        GREETING = "Hello ${params.USERNAME}"
+    }
+
+    stages {
+        stage('Testing_Dev') {
+            steps {
+                echo "${env.GREETING}"
+                echo "Application: ${env.APP_NAME}"
+                echo "Environment: ${env.BUILD_ENV}"
+
+                script {
+                    if (params.RUN_LS) {
+                        sh 'ls -lrt'
+                    }
+                }
+            }
+        }
+
+        stage('Testing_Stage') {
+            steps {
+                echo "Hello World 2 - ${env.BUILD_ENV}"
+            }
+        }
+
+        stage('Testing_Prod') {
+            steps {
+                echo "Hello World 3"
+            }
+        }
+    }
+}
