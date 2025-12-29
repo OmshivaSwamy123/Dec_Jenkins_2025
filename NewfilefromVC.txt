@@ -1,3 +1,4 @@
 this is new file from Visual studio Code.
 Lets make it piblic cls
 trying to add new file but its not working git 
+lets try with VS code it may work
