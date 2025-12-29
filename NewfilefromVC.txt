@@ -1,2 +1,3 @@
 this is new file from Visual studio Code.
-Lets make it piblic 
+Lets make it piblic cls
+trying to add new file but its not working git 
