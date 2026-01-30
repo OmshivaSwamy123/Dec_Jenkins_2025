@@ -1,8 +1,11 @@
-pipeline {
+pipeline 
+{
     agent none
 
-    stages {
-        stage('Hello') {
+    stages 
+    {
+        stage('Hello') 
+        {
             agent { label 'Slave_Two' }
             steps {
                 echo 'Hello World'
@@ -12,16 +15,20 @@ pipeline {
             }
         }
 
-        stage('Hello2') {
+        stage('Hello2') 
+        {
             agent { label 'Slave_One' }
-            steps {
+            steps 
+            {
                 echo 'Hello World 2'
             }
         }
 
-        stage('Hello3') {
+        stage('Hello3') 
+        {
             agent { label 'Slave_Two' }
-            steps {
+            steps 
+            {
                 echo 'Hello World 3'
             }
         }
