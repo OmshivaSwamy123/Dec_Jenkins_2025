@@ -1,0 +1,10 @@
+PS C:\Users\user\Desktop\DevOps\Dev-git\Dec_Jenkins_2025> git branch
+* BranchA
+  BranchB
+  main
+PS C:\Users\user\Desktop\DevOps\Dev-git\Dec_Jenkins_2025> 
+PS C:\Users\user\Desktop\DevOps\Dev-git\Dec_Jenkins_2025> git branch
+* BranchA
+  BranchB
+  main
+PS C:\Users\user\Desktop\DevOps\Dev-git\Dec_Jenkins_2025> 
