@@ -1,0 +1,62 @@
+
+git restore --staged shiva.txt --- retore back working directory from staging 
+
+fetch_HEAD temp branch --> Fetch we have merges the changes to locally 
+git remote -v
+git fetch origin branch 
+comparing 2 branches 
+	git diff main FETCH_HEAD
+Tool : Beyand Compare 
+
+generally we do :
+	git pull && git add --all && git commit -m ""  git push 
+
+Merge and rebase : 
+Semvar 
+
+tag : 
+	git tag v1 ---> tag is human readable name to commit id 
+	git tag v2 commit id 
+	git push --tags ----> pushing the tag to remote 
+	git checkout main ---> switching the one branch to other 
+	
+PR always request from GUI.
+
+Undo Oparation :
+REVERT:
+	revert --> create the commit history 
+	git revert <commit-id> --no-edit -----> not editing 
+	We can revert multiple commout 
+	we can revert multiple range in with .. 
+RESET: 
+	- Without mantaining any history deleting the commits 
+	- we should not reset in history 
+	- git restet -- hard b456312  ---> commits going the out of the Repo all the commits above it 
+	  will delete all the of it 
+	- Once after reset git won't allow the nor push , because remote has commits 
+	  so wee need push force 
+	- git push --force or -f 
+	- Soft ---> bring commits to staging area 
+	- mixed --> bring commits to working directory .
+
+	Fetch , Push ,Clone these will work with remote other then all commands work with locally 
+	Before merging any branch (source and destination )ld be up to date (meaning pul the )
+	- git log --merges  --oneline ---> list the all merges 
+	- git log --merges  --oneline branch /branch 2 ---> it will show other branches .
+	- git log --merges  --since ="2024-01-10" untill="2025-01-10"
+-
+git push --set-upstream origin main
+.gitignore ---> this git will not track the file in file 
+
+Rebase :
+	- Bring all the commits from source (branch1 ) to to the tip of the destination branch (Main Branch ) 
+	   and completly rewrite the history  
+	- re-base will never create the rebase commits 
+	- if we use rebase we have to use force push 
+	- rebase and reset are force push operation 
+
+cherry-pick
+
+
+
+
