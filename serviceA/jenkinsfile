@@ -34,9 +34,9 @@ pipeline {
             }
         }
 
-        stage('Testing_Prod') {
+        stage('Deployment_Stage') {
             steps {
-                echo "Hello World 3"
+                echo "Deployment is Done"
             }
         }
     }
